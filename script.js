@@ -6,22 +6,27 @@
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Mobile nav toggle
-const navToggle = document.getElementById('navToggle');
-const siteNav = document.getElementById('siteNav');
+// Fullscreen nav overlay toggle
+const menuBtn = document.getElementById('menuBtn');
+const navOverlay = document.getElementById('navOverlay');
 
-if (navToggle && siteNav) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = siteNav.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
+function closeNav() {
+  navOverlay.classList.remove('is-open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}
+
+if (menuBtn && navOverlay) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navOverlay.classList.toggle('is-open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
   });
 
-  // Close menu after tapping a nav link (mobile)
-  siteNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      siteNav.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
+  navOverlay.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNav();
   });
 }
 
@@ -43,6 +48,5 @@ if ('IntersectionObserver' in window && revealTargets.length) {
 
   revealTargets.forEach((el) => observer.observe(el));
 } else {
-  // Fallback: just show everything
   revealTargets.forEach((el) => el.classList.add('is-visible'));
 }
