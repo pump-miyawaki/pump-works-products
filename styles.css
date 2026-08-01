@@ -274,7 +274,14 @@ ul,ol{ list-style:none; margin:0; padding:0; }
   width:100%; aspect-ratio:1;
   border:1px solid var(--hair);
   color:var(--gray);
-  padding:2rem;
+  padding:.6rem;
+  overflow:hidden;
+}
+.profile__figure img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  filter:grayscale(.15);
 }
 .profile__role{
   font-family:var(--font-mark);
@@ -379,3 +386,111 @@ ul,ol{ list-style:none; margin:0; padding:0; }
   .line-float span{ display:none; }
   .line-float{ padding:.9em; }
 }
+
+/* =========================================================
+   Business sub-pages — page hero
+   ========================================================= */
+.page-hero{
+  position:relative;
+  padding-top:9rem;
+  padding-bottom:4rem;
+  border-bottom:1px solid var(--hair);
+}
+.page-hero__inner{ max-width:44rem; }
+.back-link{
+  display:inline-block;
+  font-family:var(--font-mark);
+  font-size:.8rem;
+  letter-spacing:.05em;
+  color:var(--gray);
+  margin-bottom:2rem;
+  transition:color .2s ease;
+}
+.back-link:hover{ color:var(--line); }
+.page-hero__title{
+  font-family:var(--font-jp);
+  font-weight:900;
+  font-size:clamp(2rem, 1.4rem + 3.4vw, 3.4rem);
+  line-height:1.25;
+}
+.page-hero__tagline{
+  margin-top:1rem;
+  color:var(--line);
+  font-weight:700;
+  font-size:1.05rem;
+}
+.page-hero__lead{
+  margin-top:1.2rem;
+  max-width:32rem;
+  color:var(--gray);
+}
+.page-hero .hero__actions{ margin-top:2.4rem; }
+
+/* Menu / pricing grid */
+.section--menu{ background:var(--black-soft); }
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:1.4rem;
+  margin-top:2.2rem;
+}
+.menu-card{
+  border:1px solid var(--hair);
+  padding:2rem;
+  transition:border-color .2s ease;
+}
+.menu-card:hover{ border-color:var(--line); }
+.menu-card__price{
+  font-family:var(--font-mark);
+  color:var(--line);
+  font-weight:700;
+  font-size:1.3rem;
+  margin-bottom:.7rem;
+}
+.menu-card__name{ font-size:1.1rem; font-weight:700; margin-bottom:.6rem; }
+.menu-card__desc{ color:var(--gray); font-size:.9rem; }
+
+/* Process / flow list */
+.section--flow{ background:var(--black); }
+.process-list{ margin-top:2.2rem; border-top:1px solid var(--hair); }
+.process-step{
+  display:grid;
+  grid-template-columns:3.5rem 1fr;
+  gap:1.5rem;
+  padding:1.8rem 0;
+  border-bottom:1px solid var(--hair);
+}
+.process-step__num{
+  font-family:var(--font-mark);
+  color:var(--line);
+  font-weight:700;
+  font-size:1.3rem;
+}
+.process-step__title{ font-size:1.05rem; font-weight:700; margin-bottom:.4rem; }
+.process-step__desc{ color:var(--gray); font-size:.92rem; }
+
+/* FAQ */
+.section--faq{ background:var(--black-soft); }
+.faq-list{ margin-top:2.2rem; border-top:1px solid var(--hair); }
+.faq-item{ border-bottom:1px solid var(--hair); padding:1.5rem 0; }
+.faq-item__q{
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  font-weight:700;
+  font-size:1rem;
+}
+.faq-item__q::-webkit-details-marker{ display:none; }
+.faq-item__q::after{
+  content:'+';
+  font-family:var(--font-mark);
+  color:var(--line);
+  font-size:1.3rem;
+  flex-shrink:0;
+  transition:transform .2s ease;
+}
+.faq-item[open] .faq-item__q::after{ transform:rotate(45deg); }
+.faq-item__a{ color:var(--gray); margin-top:1rem; font-size:.94rem; }
