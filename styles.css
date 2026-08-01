@@ -3,7 +3,7 @@
    ========================================================= */
 :root{
   --ink:         #111111;   /* base text, and bg for the few "punctuation" dark sections */
-  --paper:       #00000;   /* base background */
+  --paper:       #FFFFFF;   /* base background */
   --paper-soft:  #F4F4F1;   /* alternating section background */
   --gray:        #6E6E68;   /* secondary text on light backgrounds */
   --gray-invert: #B7B7B0;   /* secondary text on dark backgrounds */
@@ -281,4 +281,35 @@ ul,ol{ list-style:none; margin:0; padding:0; }
   .line-float span{ display:none; }
   .line-float{ padding:.9em; }
   .hero{ min-height:80vh; align-items:flex-end; }
+}
+
+/* =========================================================
+   Coffee page — Links & Gallery
+   ========================================================= */
+.section--links{ background:var(--paper); }
+.link-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.4rem; margin-top:2.2rem; }
+.link-card{
+  display:flex; align-items:center; gap:1.4rem;
+  border:1px solid var(--hair);
+  padding:1.8rem 2rem;
+  transition:border-color .2s ease, background .2s ease;
+}
+.link-card:hover{ border-color:var(--line); background:var(--paper-soft); }
+.link-card:hover .link-card__arrow{ transform:translateX(4px); color:var(--line); }
+.link-card__icon{ width:44px; height:44px; flex-shrink:0; color:var(--line); }
+.link-card__icon svg{ width:100%; height:100%; }
+.link-card__body{ flex:1; display:flex; flex-direction:column; gap:.3rem; }
+.link-card__label{ font-weight:700; font-size:1.1rem; color:var(--ink); }
+.link-card__sub{ color:var(--gray); font-size:.88rem; }
+.link-card__arrow{ font-family:var(--font-mark); font-size:1.3rem; color:var(--ink); transition:transform .2s ease, color .2s ease; flex-shrink:0; }
+
+.section--gallery{ background:var(--paper-soft); }
+.gallery-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1rem; margin-top:2.2rem; }
+.gallery-item{ aspect-ratio:1; background:var(--hair); overflow:hidden; }
+.gallery-item img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.gallery-item:hover img{ transform:scale(1.06); }
+
+@media (max-width:700px){
+  .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
+  .link-card{ flex-wrap:wrap; }
 }
