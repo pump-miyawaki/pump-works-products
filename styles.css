@@ -3,7 +3,7 @@
    ========================================================= */
 :root{
   --ink:         #111111;   /* base text, and bg for the few "punctuation" dark sections */
-  --paper:       #FFFFFF;   /* base background */
+  --paper:       #00000;   /* base background */
   --paper-soft:  #F4F4F1;   /* alternating section background */
   --gray:        #6E6E68;   /* secondary text on light backgrounds */
   --gray-invert: #B7B7B0;   /* secondary text on dark backgrounds */
