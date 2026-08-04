@@ -313,3 +313,89 @@ ul,ol{ list-style:none; margin:0; padding:0; }
   .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
   .link-card{ flex-wrap:wrap; }
 }
+
+
+/* ============================================================
+   追加スタイル（プロフィールサイト拡張）
+   Mission / Vision / Value / Story / Voices / Video / SNS / Shop / FAQ
+   既存のスタイルは変更せず、新セクション用のルールのみ追加しています。
+   ============================================================ */
+
+.section--compact{padding:5.2rem 0;}
+.section-note{color:var(--gray);font-size:.92rem;margin-top:-.6em;margin-bottom:2.2rem;max-width:38rem;}
+
+/* ---- Mission / Vision ---- */
+.section--mission{background:var(--paper-soft);}
+.section--vision{background:var(--ink);color:var(--paper);}
+.section--vision .eyebrow{color:var(--line);}
+.philosophy__lead{font-size:clamp(1.3rem,1.1rem + 1vw,1.7rem);font-weight:700;margin-bottom:1.2rem;max-width:34rem;}
+.philosophy__body{color:var(--gray);max-width:38rem;}
+.section--vision .philosophy__body{color:var(--gray-invert);}
+
+/* ---- Value ---- */
+.section--value{background:var(--paper);}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2rem;border-top:1px solid var(--hair);}
+.value-card{padding:2.2rem 1.6rem 2.2rem 0;border-right:1px solid var(--hair);}
+.value-card:last-child{border-right:none;}
+.value-card:not(:first-child){padding-left:1.6rem;}
+.value-card__num{font-family:var(--font-mark);color:var(--line);font-size:.85rem;letter-spacing:.05em;margin-bottom:.9rem;display:block;}
+.value-card__title{font-size:1.1rem;font-weight:700;margin-bottom:.7rem;}
+.value-card__desc{color:var(--gray);font-size:.9rem;}
+
+/* ---- Story timeline ---- */
+.section--story{background:var(--paper-soft);}
+.timeline{margin-top:2rem;border-top:1px solid var(--hair);}
+.timeline-row{display:grid;grid-template-columns:9rem 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--hair);}
+.timeline-row__era-label{font-family:var(--font-mark);font-weight:700;font-size:1.02rem;}
+.timeline-row__era-year{font-family:var(--font-mark);color:var(--gray);font-size:.8rem;margin-top:.3rem;}
+.timeline-row__body{color:var(--gray);}
+.timeline-row__body strong{color:var(--ink);font-weight:700;}
+
+/* ---- Achievements 4-column modifier ---- */
+.stat-row--4{grid-template-columns:repeat(4,1fr);}
+.stat-block__link{color:var(--line);font-weight:700;text-decoration:none;}
+.stat-block__link:hover{opacity:.7;}
+
+/* ---- Voices ---- */
+.section--voices{background:var(--paper);}
+.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2rem;}
+.voice-card{border:1px solid var(--hair);background:var(--paper-soft);padding:1.8rem 1.6rem;}
+.voice-card__quote{font-size:.96rem;line-height:1.8;margin-bottom:1.2rem;}
+.voice-card__meta{color:var(--gray);font-size:.8rem;font-family:var(--font-mark);letter-spacing:.02em;}
+
+/* ---- Video ---- */
+.section--video{background:var(--paper-soft);}
+.video-card{margin-top:2rem;}
+.video-card__frame{position:relative;width:100%;padding-top:56.25%;border:1px solid var(--hair);background:#000;overflow:hidden;}
+.video-card__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+/* ---- SNS row ---- */
+.section--sns{background:var(--paper);}
+.field-row__link--sns{display:grid;grid-template-columns:3.2rem 1fr 2.5rem;align-items:center;gap:1.5rem;padding:1.6rem 0;}
+.sns-mono{width:2.1rem;height:2.1rem;border-radius:999px;border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;font-family:var(--font-mark);font-weight:700;font-size:.8rem;color:var(--ink);transition:border-color .2s,color .2s;}
+.field-row__link--sns:hover .sns-mono{border-color:var(--line);color:var(--line);}
+
+/* ---- Shop ---- */
+.section--shop{background:var(--paper-soft);}
+
+/* ---- FAQ ---- */
+.section--faq{background:var(--paper);}
+.faq-list{margin-top:2rem;border-top:1px solid var(--hair);}
+.faq-item{border-bottom:1px solid var(--hair);}
+.faq-item summary{cursor:pointer;padding:1.5rem 2.2rem 1.5rem 0;font-weight:700;font-size:.98rem;position:relative;list-style:none;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:"+";position:absolute;right:0;top:1.5rem;font-family:var(--font-mark);color:var(--line);font-size:1.3rem;transition:transform .2s;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__answer{color:var(--gray);padding-bottom:1.5rem;max-width:42rem;font-size:.92rem;}
+.faq-item__cat{font-family:var(--font-mark);font-size:.65rem;color:var(--line);letter-spacing:.06em;display:block;margin-bottom:.4em;}
+
+/* ---- Responsive ---- */
+@media (max-width:760px){
+  .value-grid{grid-template-columns:1fr;border-top:none;}
+  .value-card{border-right:none;border-top:1px solid var(--hair);padding:1.6rem 0;}
+  .value-card:not(:first-child){padding-left:0;}
+  .timeline-row{grid-template-columns:1fr;gap:.5rem;}
+  .stat-row--4{grid-template-columns:1fr;}
+  .voice-grid{grid-template-columns:1fr;}
+  .field-row__link--sns{grid-template-columns:2.6rem 1fr 2rem;}
+}
