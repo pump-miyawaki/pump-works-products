@@ -424,3 +424,27 @@ ul,ol{ list-style:none; margin:0; padding:0; }
   .hero__slide{animation:none;opacity:0;}
   .hero__slide:nth-child(1){opacity:1;}
 }
+
+
+/* ============================================================
+   セクション内の写真（Mission / Vision / Story）
+   ============================================================ */
+.philosophy__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,4vw,4.5rem);align-items:center;}
+.philosophy__text{min-width:0;}
+.philosophy__figure{margin:0;overflow:hidden;}
+.philosophy__figure img{width:100%;height:100%;max-height:26rem;object-fit:cover;display:block;filter:grayscale(.12);transition:transform .8s cubic-bezier(.4,0,.2,1);}
+.philosophy__figure:hover img{transform:scale(1.03);}
+.section--mission .philosophy__lead,.section--vision .philosophy__lead{max-width:none;}
+.section--mission .philosophy__body,.section--vision .philosophy__body{max-width:none;}
+.section--vision .philosophy__figure img{filter:grayscale(.3) brightness(.92);}
+
+/* Story は帯状の写真 */
+.story-figure{margin:0 0 2.6rem;overflow:hidden;}
+.story-figure img{width:100%;height:clamp(14rem,26vw,20rem);object-fit:cover;object-position:center 42%;display:block;filter:grayscale(.12);}
+.story-figure figcaption{margin-top:.8rem;font-size:.82rem;color:var(--gray);letter-spacing:.02em;}
+
+@media (max-width:860px){
+  .philosophy__grid{grid-template-columns:1fr;gap:2rem;}
+  .philosophy__figure{order:-1;}
+  .philosophy__figure img{max-height:15rem;}
+}
